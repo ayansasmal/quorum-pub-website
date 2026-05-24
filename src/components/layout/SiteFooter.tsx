@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
 
 const FOOTER_LINKS = [
-  { label: 'GitHub',            href: 'https://github.com/ayansasmal/quorum-pub-website' },
+  { label: 'GitHub',            href: 'https://github.com/ayansasmal/quorum' },
   { label: 'Docs',              href: '/get-started' },
-  { label: 'License · Apache 2.0', href: 'https://github.com/ayansasmal/quorum-pub-website/blob/main/LICENSE' },
+  { label: 'License · Apache 2.0', href: 'https://github.com/ayansasmal/quorum/blob/main/LICENSE' },
   { label: 'Constitution',      href: '/governance' },
 ]
 

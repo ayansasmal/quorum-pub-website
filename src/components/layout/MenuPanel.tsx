@@ -179,7 +179,7 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
           gap: 12,
         }}>
           <a
-            href="https://github.com/ayansasmal/quorum-pub-website"
+            href="https://github.com/ayansasmal/quorum"
             target="_blank"
             rel="noopener noreferrer"
             style={{

@@ -88,7 +88,7 @@ export function SiteHeader({ menuOpen, onMenuToggle }: SiteHeaderProps) {
 
         {/* GitHub star count (≥720px) */}
         <a
-          href="https://github.com/ayansasmal/quorum-pub-website"
+          href="https://github.com/ayansasmal/quorum"
           target="_blank"
           rel="noopener noreferrer"
           className="qh-stars"

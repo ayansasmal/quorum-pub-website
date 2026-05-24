@@ -23,7 +23,7 @@ const STEPS = [
     n: '01',
     title: 'Clone and run the server',
     desc: 'Clone the Quorum repository and run the setup script. It starts a Docker stack with the graph server, gateway, and UI.',
-    code: `git clone https://github.com/as-quorum/quorum
+    code: `git clone https://github.com/ayansasmal/quorum
 cd quorum
 ./scripts/setup.sh docker`,
     note: 'The setup script creates a .env file with sensible defaults. Edit it before running in production.',
@@ -46,7 +46,8 @@ cd quorum
     n: '03',
     title: 'Install the MCP server',
     desc: 'Install the Quorum MCP package globally. This registers Quorum as a tool Claude Code can use in any project.',
-    code: `npx @as-quorum/mcp install`,
+    code: `git clone https://github.com/ayansasmal/quorum-mcp
+cd quorum-mcp && npm install && npm run install-mcp`,
     note: 'This adds the quorum MCP server to your Claude Code config. Restart Claude Code after installation.',
   },
   {
@@ -404,10 +405,10 @@ export default function GetStartedPage() {
               about architecture or how to model your team&apos;s knowledge. Both are watched.
             </p>
             <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-              <Button variant="primary" href="https://github.com/as-quorum/quorum/issues" size="md">
+              <Button variant="primary" href="https://github.com/ayansasmal/quorum/issues" size="md">
                 Open an issue
               </Button>
-              <Button variant="secondary" href="https://github.com/as-quorum/quorum/discussions" size="md">
+              <Button variant="secondary" href="https://github.com/ayansasmal/quorum/discussions" size="md">
                 Start a discussion
               </Button>
             </div>

@@ -30,7 +30,7 @@ export function ClosingCTA() {
           <Button
             variant="primary"
             size="lg"
-            href="https://github.com/ayansasmal/quorum-pub-website"
+            href="https://github.com/ayansasmal/quorum"
             iconRight="→"
           >
             Star on GitHub

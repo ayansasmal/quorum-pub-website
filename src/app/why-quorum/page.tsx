@@ -350,7 +350,7 @@ export default function WhyQuorumPage() {
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button variant="primary" size="lg" href="/get-started" iconRight="→">Get Started Free</Button>
-            <Button variant="secondary" size="lg" href="https://github.com/ayansasmal/quorum-pub-website">View on GitHub</Button>
+            <Button variant="secondary" size="lg" href="https://github.com/ayansasmal/quorum">View on GitHub</Button>
           </div>
         </div>
       </Section>
