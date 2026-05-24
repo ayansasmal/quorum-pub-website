@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+/* ─── Tailwind theme tokens ─────────────────────────────────────── */
+@theme {
+  --font-sans: var(--geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--geist-mono), ui-monospace, 'JetBrains Mono', monospace;
+}
+
+/* ─── Design system tokens — Library Slate Light ─────────────────── */
+:root {
+  color-scheme: light;
+
+  --bg:           #f4f1e9;
+  --bg-alt:       #e9e5d8;
+  --surface:      #fcfaf3;
+  --surface-2:    #ebe6d6;
+
+  --ink:          #0f1419;
+  --ink-2:        #3a4350;
+  --muted:        #7a808c;
+
+  --border:       rgba(8, 16, 32, 0.12);
+  --border-strong: rgba(8, 16, 32, 0.30);
+
+  --primary:      #1f4d6b;
+  --primary-soft: rgba(31, 77, 107, 0.12);
+  --primary-ink:  #ffffff;
+
+  --red:          #9c3636;
+  --red-soft:     rgba(156, 54, 54, 0.10);
+  --green:        #356b48;
+  --green-soft:   rgba(53, 107, 72, 0.12);
+  --amber:        #a86b1f;
+
+  /* ─── Spacing radii */
+  --r-1: 4px;
+  --r-2: 6px;
+  --r-3: 10px;
+  --r-4: 16px;
+  --r-5: 24px;
+
+  /* ─── Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* ─── Library Slate Dark ─────────────────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --bg:           #0d1117;
+    --bg-alt:       #141a23;
+    --surface:      #171e28;
+    --surface-2:    #222a36;
+
+    --ink:          #f1ede3;
+    --ink-2:        #b2b0a8;
+    --muted:        #6f7177;
+
+    --border:       rgba(241, 237, 227, 0.12);
+    --border-strong: rgba(241, 237, 227, 0.28);
+
+    --primary:      #bdd6e5;
+    --primary-soft: rgba(189, 214, 229, 0.16);
+    --primary-ink:  #0a0d12;
+
+    --red:          #e88a8a;
+    --red-soft:     rgba(232, 138, 138, 0.14);
+    --green:        #9fc9a6;
+    --green-soft:   rgba(159, 201, 166, 0.14);
+    --amber:        #e5b878;
+  }
+}
+
+/* ─── Base styles ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--geist), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: 'ss01', 'cv11';
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a { color: inherit; }
+button { font-family: inherit; }
+
+/* ─── Utility classes ─────────────────────────────────────────────── */
+.qh-mono {
+  font-family: var(--geist-mono), ui-monospace, monospace;
+  font-feature-settings: 'ss01';
+}
+
+.qh-eyebrow {
+  font-family: var(--geist-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.qh-eyebrow .lead { color: var(--primary); font-weight: 600; }
+
+/* ─── Container query host ────────────────────────────────────────── */
+.site-root {
+  container-type: inline-size;
+  container-name: site;
+  position: relative;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100svh;
+}
+
+/* ─── Mobile-first responsive via container queries ─────────────── */
+.qh-nav-inline  { display: none; }
+.qh-cta-desktop { display: none; }
+.qh-hamburger   { display: inline-flex; }
+.qh-stars       { display: none; }
+.qh-hero-grid   { grid-template-columns: 1fr; }
+.qh-pain-grid   { grid-template-columns: 1fr; }
+.qh-2col        { grid-template-columns: 1fr; gap: 36px; }
+
+@container site (min-width: 720px) {
+  .qh-hero-grid { grid-template-columns: 1.05fr 0.95fr !important; gap: 40px !important; }
+  .qh-pain-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+  .qh-2col      { grid-template-columns: 1fr 1.05fr !important; gap: 48px !important; }
+  .qh-stars     { display: inline-flex !important; }
+}
+
+@container site (min-width: 1024px) {
+  .qh-nav-inline  { display: flex !important; }
+  .qh-cta-desktop { display: inline-flex !important; }
+  .qh-hamburger   { display: none !important; }
+}
+
+@container site (min-width: 1180px) {
+  .qh-2col { gap: 64px !important; }
+}
+
+/* ─── Feature card grid (content pages) ──────────────────────────── */
+.qh-feature-grid { grid-template-columns: 1fr; }
+
+@container site (min-width: 600px) {
+  .qh-feature-grid { grid-template-columns: 1fr 1fr !important; }
+}
+
+@container site (min-width: 1024px) {
+  .qh-feature-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+}
