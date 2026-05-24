@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import { EditorialStrip } from '@/components/layout/EditorialStrip'
 import { SiteNav } from '@/components/layout/SiteNav'
 import { SiteFooter } from '@/components/layout/SiteFooter'
+import { ThemeProvider } from '@/context/ThemeContext'
 
 const geist = Geist({
   subsets: ['latin'],
@@ -34,14 +36,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body>
-        <div className="site-root">
-          <EditorialStrip />
-          <SiteNav />
-          <main>{children}</main>
-          <SiteFooter />
-        </div>
+        {/* Runs before page is interactive — prevents flash of wrong theme */}
+        <Script src="/theme-init.js" strategy="beforeInteractive" />
+        <ThemeProvider>
+          <div className="site-root">
+            <EditorialStrip />
+            <SiteNav />
+            <main>{children}</main>
+            <SiteFooter />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   )

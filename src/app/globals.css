@@ -45,7 +45,7 @@
   --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.04);
 }
 
-/* ─── Library Slate Dark ─────────────────────────────────────────── */
+/* ─── Library Slate Dark (system auto-mode fallback) ────────────── */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
@@ -72,6 +72,91 @@
     --green-soft:   rgba(159, 201, 166, 0.14);
     --amber:        #e5b878;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   Explicit theme overrides — [data-theme][data-mode] on <html>
+   Specificity 0,2,0 beats :root 0,1,0 — these always win when set.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ─── Library Slate ─────────────────────────────────────────────── */
+[data-theme="library-slate"][data-mode="light"] {
+  color-scheme: light;
+  --bg: #f4f1e9; --bg-alt: #e9e5d8; --surface: #fcfaf3; --surface-2: #ebe6d6;
+  --ink: #0f1419; --ink-2: #3a4350; --muted: #7a808c;
+  --border: rgba(8,16,32,0.12); --border-strong: rgba(8,16,32,0.30);
+  --primary: #1f4d6b; --primary-soft: rgba(31,77,107,0.12); --primary-ink: #ffffff;
+  --red: #9c3636; --red-soft: rgba(156,54,54,0.10);
+  --green: #356b48; --green-soft: rgba(53,107,72,0.12); --amber: #a86b1f;
+}
+[data-theme="library-slate"][data-mode="dark"] {
+  color-scheme: dark;
+  --bg: #0d1117; --bg-alt: #141a23; --surface: #171e28; --surface-2: #222a36;
+  --ink: #f1ede3; --ink-2: #b2b0a8; --muted: #6f7177;
+  --border: rgba(241,237,227,0.12); --border-strong: rgba(241,237,227,0.28);
+  --primary: #bdd6e5; --primary-soft: rgba(189,214,229,0.16); --primary-ink: #0a0d12;
+  --red: #e88a8a; --red-soft: rgba(232,138,138,0.14);
+  --green: #9fc9a6; --green-soft: rgba(159,201,166,0.14); --amber: #e5b878;
+}
+
+/* ─── Warm Editorial ────────────────────────────────────────────── */
+[data-theme="warm-editorial"][data-mode="light"] {
+  color-scheme: light;
+  --bg: #f7f4ee; --bg-alt: #efebe2; --surface: #fdfbf6; --surface-2: #f1ede4;
+  --ink: #191713; --ink-2: #4a4640; --muted: #8a857c;
+  --border: rgba(20,15,5,0.10); --border-strong: rgba(20,15,5,0.22);
+  --primary: #4f46e5; --primary-soft: rgba(79,70,229,0.10); --primary-ink: #ffffff;
+  --red: #c0392b; --red-soft: rgba(192,57,43,0.08);
+  --green: #047857; --green-soft: rgba(4,120,87,0.10); --amber: #a07900;
+}
+[data-theme="warm-editorial"][data-mode="dark"] {
+  color-scheme: dark;
+  --bg: #15120c; --bg-alt: #1c1812; --surface: #1d1a14; --surface-2: #26221a;
+  --ink: #f1ece1; --ink-2: #c2bba9; --muted: #7a7567;
+  --border: rgba(241,236,225,0.10); --border-strong: rgba(241,236,225,0.24);
+  --primary: #a5b4fc; --primary-soft: rgba(165,180,252,0.14); --primary-ink: #0a0a0e;
+  --red: #f87171; --red-soft: rgba(248,113,113,0.12);
+  --green: #6ee7b7; --green-soft: rgba(110,231,183,0.12); --amber: #f0c674;
+}
+
+/* ─── Forest Atlas ──────────────────────────────────────────────── */
+[data-theme="forest-atlas"][data-mode="light"] {
+  color-scheme: light;
+  --bg: #f6f1e5; --bg-alt: #ede8d9; --surface: #fbf7ec; --surface-2: #ede7d4;
+  --ink: #1c241a; --ink-2: #3f4a3b; --muted: #85877b;
+  --border: rgba(20,30,15,0.10); --border-strong: rgba(20,30,15,0.22);
+  --primary: #2d5a3d; --primary-soft: rgba(45,90,61,0.10); --primary-ink: #ffffff;
+  --red: #a13e2a; --red-soft: rgba(161,62,42,0.08);
+  --green: #3d6b4a; --green-soft: rgba(61,107,74,0.10); --amber: #b8602e;
+}
+[data-theme="forest-atlas"][data-mode="dark"] {
+  color-scheme: dark;
+  --bg: #141710; --bg-alt: #1a1d15; --surface: #1e2218; --surface-2: #272c20;
+  --ink: #ece7d6; --ink-2: #aab09f; --muted: #6e7367;
+  --border: rgba(236,231,214,0.10); --border-strong: rgba(236,231,214,0.24);
+  --primary: #86b894; --primary-soft: rgba(134,184,148,0.14); --primary-ink: #0a0a0e;
+  --red: #d97765; --red-soft: rgba(217,119,101,0.12);
+  --green: #86b894; --green-soft: rgba(134,184,148,0.12); --amber: #d49060;
+}
+
+/* ─── Mono Ink ──────────────────────────────────────────────────── */
+[data-theme="mono-ink"][data-mode="light"] {
+  color-scheme: light;
+  --bg: #fafaf7; --bg-alt: #f0f0eb; --surface: #ffffff; --surface-2: #f3f3ee;
+  --ink: #0a0b0e; --ink-2: #3a3b40; --muted: #888892;
+  --border: rgba(10,10,15,0.10); --border-strong: rgba(10,10,15,0.26);
+  --primary: #4f46e5; --primary-soft: rgba(79,70,229,0.09); --primary-ink: #ffffff;
+  --red: #dc2626; --red-soft: rgba(220,38,38,0.07);
+  --green: #059669; --green-soft: rgba(5,150,105,0.10); --amber: #b45309;
+}
+[data-theme="mono-ink"][data-mode="dark"] {
+  color-scheme: dark;
+  --bg: #09090c; --bg-alt: #0f0f14; --surface: #13131a; --surface-2: #1c1c24;
+  --ink: #f3f3f7; --ink-2: #b6b6c0; --muted: #67676c;
+  --border: rgba(243,243,247,0.10); --border-strong: rgba(243,243,247,0.24);
+  --primary: #a5b4fc; --primary-soft: rgba(165,180,252,0.14); --primary-ink: #09090c;
+  --red: #f87171; --red-soft: rgba(248,113,113,0.12);
+  --green: #34d399; --green-soft: rgba(52,211,153,0.14); --amber: #f6c14b;
 }
 
 /* ─── Base styles ─────────────────────────────────────────────────── */

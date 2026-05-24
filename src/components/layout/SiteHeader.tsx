@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
 import { Tag } from '@/components/ui/Tag'
 import { Button } from '@/components/ui/Button'
+import { ThemeSwitcher } from '@/components/ui/ThemeSwitcher'
 import { NAV_TREE } from '@/lib/nav'
 
 interface SiteHeaderProps {
@@ -113,6 +114,9 @@ export function SiteHeader({ menuOpen, onMenuToggle }: SiteHeaderProps) {
         <span className="qh-cta-desktop">
           <Button variant="primary" size="sm" href="/get-started">Get Started</Button>
         </span>
+
+        {/* Theme switcher (always visible) */}
+        <ThemeSwitcher />
 
         {/* Hamburger (mobile/tablet) */}
         <button
