@@ -202,13 +202,24 @@ button { font-family: inherit; }
 }
 
 /* ─── Mobile-first responsive via container queries ─────────────── */
-.qh-nav-inline  { display: none; }
-.qh-cta-desktop { display: none; }
-.qh-hamburger   { display: inline-flex; }
-.qh-stars       { display: none; }
-.qh-hero-grid   { grid-template-columns: 1fr; }
-.qh-pain-grid   { grid-template-columns: 1fr; }
-.qh-2col        { grid-template-columns: 1fr; gap: 36px; }
+.qh-nav-inline    { display: none; }
+.qh-cta-desktop   { display: none; }
+.qh-hamburger     { display: inline-flex; }
+.qh-stars         { display: none; }
+.qh-hero-grid     { grid-template-columns: 1fr; }
+.qh-pain-grid     { grid-template-columns: 1fr; }
+.qh-2col          { grid-template-columns: 1fr; gap: 36px; }
+/* Hide editorial strip on small screens — DevBanner covers the key info */
+.qh-editorial     { display: none; }
+
+/* Grid blowout fix — prevent items from expanding past their column (e.g. pre/code blocks) */
+.qh-hero-grid > *,
+.qh-pain-grid > *,
+.qh-2col > *      { min-width: 0; }
+
+@container site (min-width: 600px) {
+  .qh-editorial { display: flex !important; }
+}
 
 @container site (min-width: 720px) {
   .qh-hero-grid { grid-template-columns: 1.05fr 0.95fr !important; gap: 40px !important; }

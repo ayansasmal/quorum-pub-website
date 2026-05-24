@@ -274,7 +274,7 @@ export default function GovernancePage() {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             {[
-              { label: 'Apache 2.0 license', desc: 'Use commercially, modify freely, distribute with attribution.' },
+              { label: 'Elastic License 2.0', desc: 'Use commercially, modify freely. Cannot offer as a hosted service to third parties.' },
               { label: 'Constitutional rules in code', desc: 'Server-enforced, not convention. Read the source.' },
               { label: 'Community change process', desc: 'Layer 1 changes require consensus — no unilateral amendments.' },
               { label: 'Public audit exports', desc: 'Export the full hash chain. Hand it to auditors.' },

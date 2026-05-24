@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import Script from 'next/script'
 import './globals.css'
+import { DevBanner } from '@/components/layout/DevBanner'
 import { EditorialStrip } from '@/components/layout/EditorialStrip'
 import { SiteNav } from '@/components/layout/SiteNav'
 import { SiteFooter } from '@/components/layout/SiteFooter'
@@ -58,6 +59,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Script src="/theme-init.js" strategy="beforeInteractive" />
         <ThemeProvider>
           <div className="site-root">
+            <DevBanner />
             <EditorialStrip />
             <SiteNav stars={stars} />
             <main>{children}</main>

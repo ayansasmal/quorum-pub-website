@@ -15,7 +15,7 @@ export function ClosingCTA() {
           textWrap: 'balance',
         } as React.CSSProperties}>
           Free. Open source. Self-hosted.{' '}
-          <span style={{ color: 'var(--primary)' }}>Apache 2.0.</span>
+          <span style={{ color: 'var(--primary)' }}>Elastic License 2.0.</span>
         </h2>
         <p style={{
           margin: '0 auto 28px',
@@ -47,7 +47,7 @@ export function ClosingCTA() {
           letterSpacing: '0.06em',
           textTransform: 'uppercase',
         }}>
-          v0.4 · 218 commits · 31 contributors
+          v0.4 shipped · v0.5 in progress · made in the open
         </div>
       </div>
     </Section>

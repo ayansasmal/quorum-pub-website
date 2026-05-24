@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import Link from 'next/link'
 import { NAV_TREE } from '@/lib/nav'
 
@@ -29,11 +29,21 @@ function ChevIcon({ open }: { open: boolean }) {
 
 export function MenuPanel({ open, onClose }: MenuPanelProps) {
   const [expanded, setExpanded] = useState<string | null>('why')
+  const [panelTop, setPanelTop] = useState(56)
 
   // Reset accordion when menu closes
   useEffect(() => {
     if (!open) return
     setExpanded('why')
+  }, [open])
+
+  // Measure actual header bottom each time the menu opens
+  useLayoutEffect(() => {
+    if (!open) return
+    const header = document.querySelector('header')
+    if (header) {
+      setPanelTop(header.getBoundingClientRect().bottom)
+    }
   }, [open])
 
   const toggle = (id: string) => setExpanded(prev => prev === id ? null : id)
@@ -45,8 +55,8 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
         onClick={onClose}
         aria-hidden
         style={{
-          position: 'absolute',
-          top: 56,
+          position: 'fixed',
+          top: panelTop,
           left: 0,
           right: 0,
           bottom: 0,
@@ -64,15 +74,15 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
         aria-label="Quorum navigation"
         aria-hidden={!open}
         style={{
-          position: 'absolute',
-          top: 56,
+          position: 'fixed',
+          top: panelTop,
           left: 0,
           right: 0,
           zIndex: 60,
           background: 'var(--bg)',
           borderBottom: '1px solid var(--border-strong)',
           boxShadow: '0 12px 30px rgba(0,0,0,0.18)',
-          transform: open ? 'translateY(0)' : 'translateY(-110%)',
+          transform: open ? 'translateY(0)' : `translateY(calc(-100% - ${panelTop}px))`,
           transition: 'transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1)',
           pointerEvents: open ? 'auto' : 'none',
         }}
@@ -177,6 +187,7 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
           justifyContent: 'space-between',
           alignItems: 'center',
           gap: 12,
+          flexWrap: 'wrap',
         }}>
           <a
             href="https://github.com/ayansasmal/quorum"

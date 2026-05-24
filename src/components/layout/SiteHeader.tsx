@@ -64,7 +64,7 @@ export function SiteHeader({ menuOpen, onMenuToggle, stars }: SiteHeaderProps) {
         >
           <Logo size={22} />
           <span style={{ fontWeight: 600, fontSize: 17, letterSpacing: '-0.012em' }}>Quorum</span>
-          <Tag style={{ marginLeft: 4 }}>v0.4</Tag>
+          <Tag style={{ marginLeft: 4 }}>preview</Tag>
         </Link>
 
         {/* Inline nav (desktop ≥1024px) */}

@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 
 export const metadata: Metadata = {
   title: 'Cost & ROI',
-  description: 'Quorum is Apache 2.0, self-hosted, and free. The ROI question is about the cost of not having institutional memory.',
+  description: 'Quorum is Elastic License 2.0, self-hosted, and free. The ROI question is about the cost of not having institutional memory.',
 }
 
 const REFLECTION_QUESTIONS = [
@@ -324,7 +324,7 @@ export default function CostRoiPage() {
               <br />No usage tiers.
             </h2>
             <p style={{ margin: '0 0 20px', fontSize: 16, lineHeight: 1.55, color: 'var(--ink-2)' }}>
-              Quorum is Apache 2.0. You self-host it on your own infrastructure.
+              Quorum is Elastic License 2.0. You self-host it on your own infrastructure.
               There is no SaaS tier, no enterprise gating, no seat-based pricing.
             </p>
             <Callout label="What you do pay">
@@ -335,7 +335,7 @@ export default function CostRoiPage() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
             {[
-              { label: 'Apache 2.0 license', desc: 'Commercial use, modification, and distribution are all permitted.' },
+              { label: 'Elastic License 2.0', desc: 'Commercial use and modification permitted. Cannot offer as a managed/hosted service to third parties.' },
               { label: 'Self-hosted', desc: 'Your knowledge graph never leaves your infrastructure. No vendor lock-in.' },
               { label: 'No per-seat pricing', desc: 'Add the whole engineering org. Add contractors. No counting heads.' },
               { label: 'No usage caps', desc: 'No token limits on the knowledge graph. Write as much as you need.' },
@@ -413,7 +413,7 @@ export default function CostRoiPage() {
             Free, self-hosted, 30 minutes to running.
           </h2>
           <p style={{ margin: '0 auto 24px', fontSize: 16, lineHeight: 1.55, color: 'var(--ink-2)' }}>
-            Apache 2.0. No account required. No card required.
+            Elastic License 2.0. No account required. No card required.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button variant="primary" size="lg" href="/get-started" iconRight="→">Get Started Free</Button>

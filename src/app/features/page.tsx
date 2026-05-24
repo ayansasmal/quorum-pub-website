@@ -253,6 +253,131 @@ export default function FeaturesPage() {
         </div>
       </Section>
 
+      {/* Coming soon */}
+      <Section id="coming-soon" padY="xl" tint>
+        <div style={{ marginBottom: 36 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
+            <Eyebrow>Coming soon</Eyebrow>
+          </div>
+          <h2 style={{
+            margin: 0,
+            fontSize: 'clamp(24px, 3.5vw, 36px)',
+            fontWeight: 600,
+            letterSpacing: '-0.022em',
+            lineHeight: 1.1,
+            maxWidth: 600,
+          }}>
+            Federation, Conformance & Portfolio Intelligence.
+          </h2>
+        </div>
+
+        <div style={{ display: 'grid', gap: 24 }} className="qh-pain-grid">
+
+          {/* Federation */}
+          <Card padded style={{ display: 'flex', flexDirection: 'column', gap: 12, opacity: 0.85 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{
+                width: 40, height: 40, borderRadius: 'var(--r-3)',
+                background: 'var(--surface-2)', border: '1px solid var(--border)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20,
+              }}>🌐</div>
+              <Tag variant="outline">preview</Tag>
+            </div>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 600, letterSpacing: '-0.015em', lineHeight: 1.2 }}>
+              Federation
+            </h3>
+            <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.6, flex: 1 }}>
+              Cross-project knowledge discovery via linked global catalogs. Search and recall
+              transparently traverse federated knowledge — with conflict detection across project
+              boundaries and config-validated cross-project references.
+            </p>
+            <div className="qh-mono" style={{ fontSize: 11, color: 'var(--ink-2)', marginTop: 4 }}>
+              {[
+                { id: 'group:platform', count: 412 },
+                { id: 'global:org-adrs', count: 46 },
+              ].map((r, i, arr) => (
+                <div key={r.id} style={{
+                  display: 'flex', justifyContent: 'space-between', padding: '3px 0',
+                  borderBottom: i < arr.length - 1 ? '1px dashed var(--border)' : 'none',
+                }}>
+                  <span style={{ color: 'var(--muted)' }}>{r.id}</span>
+                  <span>{r.count} records{i === 1 && <span style={{ color: 'var(--green)', marginLeft: 6 }}>· global</span>}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Conformance Scoring */}
+          <Card padded style={{ display: 'flex', flexDirection: 'column', gap: 12, opacity: 0.85 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{
+                width: 40, height: 40, borderRadius: 'var(--r-3)',
+                background: 'var(--surface-2)', border: '1px solid var(--border)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20,
+              }}>📊</div>
+              <Tag variant="outline">preview</Tag>
+            </div>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 600, letterSpacing: '-0.015em', lineHeight: 1.2 }}>
+              Conformance Scoring
+            </h3>
+            <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.6, flex: 1 }}>
+              Weighted conformance scores per project against global knowledge catalogs.
+              The <code style={{ fontFamily: 'var(--geist-mono)', fontSize: 11 }}>conformance()</code> MCP tool
+              gives agents real-time context. UNCERTIFIED gating prevents misleading scores
+              on cold-start graphs.
+            </p>
+            <div className="qh-mono" style={{ fontSize: 11, marginTop: 4 }}>
+              {[
+                { label: 'platform',  score: 94, color: 'var(--green)' },
+                { label: 'billing',   score: 71, color: 'var(--amber)' },
+                { label: 'mobile',    score: 43, color: 'var(--red)'   },
+              ].map(r => (
+                <div key={r.label} style={{ display: 'grid', gridTemplateColumns: '64px 1fr 32px', gap: 8, alignItems: 'center', padding: '2px 0' }}>
+                  <span style={{ color: 'var(--muted)' }}>{r.label}</span>
+                  <div style={{ position: 'relative', height: 5, background: 'var(--surface-2)', borderRadius: 3, border: '1px solid var(--border)' }}>
+                    <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: `${r.score}%`, background: r.color, borderRadius: 3 }} />
+                  </div>
+                  <span style={{ textAlign: 'right', color: r.color }}>{r.score}%</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+          {/* Portfolio Intelligence */}
+          <Card padded style={{ display: 'flex', flexDirection: 'column', gap: 12, opacity: 0.85 }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{
+                width: 40, height: 40, borderRadius: 'var(--r-3)',
+                background: 'var(--surface-2)', border: '1px solid var(--border)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20,
+              }}>🏛️</div>
+              <Tag variant="outline">preview</Tag>
+            </div>
+            <h3 style={{ margin: 0, fontSize: 18, fontWeight: 600, letterSpacing: '-0.015em', lineHeight: 1.2 }}>
+              Portfolio Intelligence
+            </h3>
+            <p style={{ margin: 0, fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.6, flex: 1 }}>
+              Role-gated org-wide knowledge insights for principal architects and executives.
+              Node-level data with weighted criticality rollup across all projects. See where
+              knowledge is healthy, stale, or missing — across the entire organisation.
+            </p>
+            <div className="qh-mono" style={{ fontSize: 11, color: 'var(--ink-2)', marginTop: 4 }}>
+              {[
+                { label: 'total nodes',        value: '2,847',             accent: false, warn: false },
+                { label: 'critical decisions', value: '134',               accent: true,  warn: false },
+                { label: 'stale (>90d)',        value: '29',                accent: false, warn: true  },
+              ].map(r => (
+                <div key={r.label} style={{ display: 'flex', justifyContent: 'space-between', padding: '2px 0' }}>
+                  <span style={{ color: 'var(--muted)' }}>{r.label}</span>
+                  <span style={{ color: r.accent ? 'var(--primary)' : r.warn ? 'var(--amber)' : 'var(--ink)' }}>{r.value}</span>
+                </div>
+              ))}
+            </div>
+          </Card>
+
+        </div>
+      </Section>
+
       {/* Business Requirements highlight */}
       <Section id="business-requirements-highlight" padY="xl" tint>
         <div style={{ display: 'grid', alignItems: 'center' }} className="qh-2col">
@@ -318,7 +443,7 @@ export default function FeaturesPage() {
             All eight features. No per-seat fees.
           </h2>
           <p style={{ margin: '0 auto 28px', fontSize: 16, lineHeight: 1.55, color: 'var(--ink-2)' }}>
-            Apache 2.0. Self-hosted. Bring your own infrastructure.
+            Elastic License 2.0. Self-hosted. Bring your own infrastructure.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button variant="primary" size="lg" href="/get-started" iconRight="→">Get Started Free</Button>

@@ -346,7 +346,7 @@ export default function WhyQuorumPage() {
             Sound familiar?
           </h2>
           <p style={{ margin: '0 auto 28px', fontSize: 16, lineHeight: 1.55, color: 'var(--ink-2)' }}>
-            Quorum is open source, Apache 2.0, self-hosted. Star the repo, install the MCP server, and your agents stop forgetting.
+            Quorum is open source, Elastic License 2.0, self-hosted. Star the repo, install the MCP server, and your agents stop forgetting.
           </p>
           <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
             <Button variant="primary" size="lg" href="/get-started" iconRight="→">Get Started Free</Button>

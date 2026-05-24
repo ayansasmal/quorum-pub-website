@@ -8,12 +8,14 @@ import { Tag } from '@/components/ui/Tag'
 
 export const metadata: Metadata = {
   title: 'Get Started',
-  description: 'Set up Quorum in 30 minutes. Apache 2.0, self-hosted, no account required.',
+  description: 'Set up Quorum in 30 minutes. Elastic License 2.0, self-hosted, no account required.',
 }
 
 const PREREQS = [
   { icon: '🐳', label: 'Docker + Docker Compose', desc: 'v20+ recommended. Used to run the graph server and gateway.' },
-  { icon: '⬢', label: 'Node.js 18+', desc: 'For the MCP server and CLI tools.' },
+  { icon: '⬢', label: 'Node.js 20+', desc: 'For the MCP server and CLI tools.' },
+  { icon: '🐍', label: 'Python + awscli-local', desc: 'Run pip install awscli-local. Used by the setup script to seed LocalStack S3.' },
+  { icon: '🔑', label: 'OpenAI API key', desc: 'Required for Graphiti embeddings. Set OPENAI_API_KEY in .env — the only required change.' },
   { icon: '✦', label: 'Claude Code', desc: 'With MCP support. The primary interface for interacting with Quorum.' },
   { icon: '⎇', label: 'GitHub account', desc: 'Authentication uses GitHub OAuth. Required for all team members.' },
 ]
@@ -25,8 +27,9 @@ const STEPS = [
     desc: 'Clone the Quorum repository and run the setup script. It starts a Docker stack with the graph server, gateway, and UI.',
     code: `git clone https://github.com/ayansasmal/quorum
 cd quorum
+cp .env.example .env          # set OPENAI_API_KEY — only required change
 ./scripts/setup.sh docker`,
-    note: 'The setup script creates a .env file with sensible defaults. Edit it before running in production.',
+    note: 'After setup: Dashboard → http://localhost:3002 · Gateway → http://localhost:3001/health',
   },
   {
     n: '02',
@@ -46,9 +49,9 @@ cd quorum
     n: '03',
     title: 'Install the MCP server',
     desc: 'Install the Quorum MCP package globally. This registers Quorum as a tool Claude Code can use in any project.',
-    code: `git clone https://github.com/ayansasmal/quorum-mcp
-cd quorum-mcp && npm install && npm run install-mcp`,
-    note: 'This adds the quorum MCP server to your Claude Code config. Restart Claude Code after installation.',
+    code: `npm install -g @as-quorum/mcp
+quorum install`,
+    note: 'This registers Quorum with Claude Code. Restart Claude Code after installation.',
   },
   {
     n: '04',
@@ -117,11 +120,11 @@ export default function GetStartedPage() {
           <span style={{ color: 'var(--primary)' }}>No account required.</span>
         </h1>
         <p style={{ fontSize: 18, color: 'var(--ink-2)', lineHeight: 1.55, maxWidth: 600, margin: '0 auto 28px' }}>
-          Apache 2.0. Self-hosted. Four steps from zero to governed memory.
+          Elastic License 2.0. Self-hosted. Four steps from zero to governed memory.
         </p>
         <div style={{ display: 'flex', gap: 10, justifyContent: 'center', flexWrap: 'wrap' }}>
           <Tag variant="default">Docker</Tag>
-          <Tag variant="default">Node.js 18+</Tag>
+          <Tag variant="default">Node.js 20+</Tag>
           <Tag variant="default">Claude Code</Tag>
           <Tag variant="default">GitHub OAuth</Tag>
         </div>
@@ -133,7 +136,7 @@ export default function GetStartedPage() {
           <Eyebrow>
             <span className="lead">SECTION 01</span> · prerequisites
           </Eyebrow>
-          <span className="qh-mono" style={{ fontSize: 11, color: 'var(--muted)' }}>4 things · all free</span>
+          <span className="qh-mono" style={{ fontSize: 11, color: 'var(--muted)' }}>6 things · all free</span>
         </div>
 
         <div style={{ display: 'grid', gap: 16 }} className="qh-2col">
