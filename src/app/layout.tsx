@@ -7,6 +7,20 @@ import { SiteNav } from '@/components/layout/SiteNav'
 import { SiteFooter } from '@/components/layout/SiteFooter'
 import { ThemeProvider } from '@/context/ThemeContext'
 
+async function getQuorumStars(): Promise<string> {
+  try {
+    const res = await fetch('https://api.github.com/repos/ayansasmal/quorum', {
+      next: { revalidate: 3600 },
+    })
+    if (!res.ok) return '★'
+    const data = await res.json() as { stargazers_count: number }
+    const n = data.stargazers_count
+    return n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n)
+  } catch {
+    return '★'
+  }
+}
+
 const geist = Geist({
   subsets: ['latin'],
   variable: '--geist',
@@ -34,7 +48,9 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const stars = await getQuorumStars()
+
   return (
     <html lang="en" className={`${geist.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <body>
@@ -43,7 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider>
           <div className="site-root">
             <EditorialStrip />
-            <SiteNav />
+            <SiteNav stars={stars} />
             <main>{children}</main>
             <SiteFooter />
           </div>

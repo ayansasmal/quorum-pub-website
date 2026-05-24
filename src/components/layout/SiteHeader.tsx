@@ -8,6 +8,7 @@ import { NAV_TREE } from '@/lib/nav'
 interface SiteHeaderProps {
   menuOpen: boolean
   onMenuToggle: () => void
+  stars: string
 }
 
 function HamburgerIcon({ open }: { open: boolean }) {
@@ -29,7 +30,7 @@ function HamburgerIcon({ open }: { open: boolean }) {
   )
 }
 
-export function SiteHeader({ menuOpen, onMenuToggle }: SiteHeaderProps) {
+export function SiteHeader({ menuOpen, onMenuToggle, stars }: SiteHeaderProps) {
   return (
     <header style={{
       position: 'sticky',
@@ -107,7 +108,7 @@ export function SiteHeader({ menuOpen, onMenuToggle }: SiteHeaderProps) {
           <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden>
             <polygon points="8,1 10,5.7 15,6.4 11.5,10 12.4,15 8,12.7 3.6,15 4.5,10 1,6.4 6,5.7" fill="currentColor" />
           </svg>
-          <span>1.2k</span>
+          <span>{stars}</span>
         </a>
 
         {/* CTA (desktop ≥1024px) */}
