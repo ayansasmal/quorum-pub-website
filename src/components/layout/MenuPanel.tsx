@@ -37,6 +37,12 @@ export function MenuPanel({ open, onClose }: MenuPanelProps) {
     setExpanded('why')
   }, [open])
 
+  // Lock body scroll while menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
   // Measure actual header bottom each time the menu opens
   useLayoutEffect(() => {
     if (!open) return
