@@ -21,6 +21,12 @@ The design medium is **HTML/CSS/JS** — these are prototypes, not production co
 - `quorum/README.md` — this file
 - `quorum/project/` — the `Quorum` project files (HTML prototypes, assets, components)
 
+## Documentation
+
+- [docs/theme-palettes.md](docs/theme-palettes.md) — the four colour palettes from the hifi design handoff (Library Slate is the active theme)
+
+> Workspace-level index (all three Quorum repos): [`../README.md`](../README.md)
+
 ## GITHUB Repository
 
 [quorum-pub-website](https://github.com/ayansasmal/quorum-pub-website.git)
